@@ -1,0 +1,22 @@
+#name
+#translation x y z
+#rotationaxis  x y z  
+#rotationdirection x y z
+2515238807
+translation   0 4000 0
+2515238806
+translation   4000 0 0
+2515238805
+translation   4000 0 0
+2515238804
+translation   -4000 0 0
+2515238803
+translation   0 0 -4000
+2515238802
+translation   0 0 -4000
+2515238801
+translation   0 -4000 0
+2515238800
+translation   0 0 4000
+251523880-
+translation   -4000 0 0
