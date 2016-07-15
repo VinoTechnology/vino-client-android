@@ -1,0 +1,171 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* .DS_Store
+* .externalToolBuilders\
+* .externalToolBuilders\New_Builder.launch
+* ic_launcher-web.png
+* out\
+* out\production\
+* out\production\Vino\
+* out\production\Vino\Vino.apk
+* out\production\Vino\com\
+* out\production\Vino\com\example\
+* out\production\Vino\com\example\vino\
+* out\production\Vino\com\example\vino\ApplicationType.class
+* out\production\Vino\com\example\vino\BuildConfig.class
+* out\production\Vino\com\example\vino\Camera.class
+* out\production\Vino\com\example\vino\ConnectThread$1.class
+* out\production\Vino\com\example\vino\ConnectThread.class
+* out\production\Vino\com\example\vino\DataPacket.class
+* out\production\Vino\com\example\vino\DataType.class
+* out\production\Vino\com\example\vino\Frustrum.class
+* out\production\Vino\com\example\vino\Interaction.class
+* out\production\Vino\com\example\vino\InteractionMode.class
+* out\production\Vino\com\example\vino\LocalInfoCapturer.class
+* out\production\Vino\com\example\vino\MessageType.class
+* out\production\Vino\com\example\vino\Motion.class
+* out\production\Vino\com\example\vino\MotionData.class
+* out\production\Vino\com\example\vino\MotionDataBuffer.class
+* out\production\Vino\com\example\vino\NodeObject.class
+* out\production\Vino\com\example\vino\ObjectGroup.class
+* out\production\Vino\com\example\vino\Perspective.class
+* out\production\Vino\com\example\vino\ProjectMode.class
+* out\production\Vino\com\example\vino\R$attr.class
+* out\production\Vino\com\example\vino\R$dimen.class
+* out\production\Vino\com\example\vino\R$drawable.class
+* out\production\Vino\com\example\vino\R$id.class
+* out\production\Vino\com\example\vino\R$layout.class
+* out\production\Vino\com\example\vino\R$menu.class
+* out\production\Vino\com\example\vino\R$string.class
+* out\production\Vino\com\example\vino\R$style.class
+* out\production\Vino\com\example\vino\R.class
+* out\production\Vino\com\example\vino\RCamera.class
+* out\production\Vino\com\example\vino\ReceiveThread$1.class
+* out\production\Vino\com\example\vino\ReceiveThread$BaseRunnable.class
+* out\production\Vino\com\example\vino\ReceiveThread.class
+* out\production\Vino\com\example\vino\SendThread.class
+* out\production\Vino\com\example\vino\Transfer.class
+* out\production\Vino\com\example\vino\TransferAdapter.class
+* out\production\Vino\com\example\vino\UpsampleFactor.class
+* out\production\Vino\com\example\vino\Vector3.class
+* out\production\Vino\com\example\vino\ViewFrustum.class
+* out\production\Vino\com\example\vino\ViewPerspective.class
+* out\production\Vino\com\example\vino\ViewResolution.class
+* out\production\Vino\com\example\vino\VinoActivity.class
+* out\production\Vino\com\example\vino\VinoGlobal.class
+* out\production\Vino\com\example\vino\VinoNativeRender.class
+* out\production\Vino\com\example\vino\VinoRender.class
+* out\production\Vino\com\example\vino\VinoSurfaceView$1.class
+* out\production\Vino\com\example\vino\VinoSurfaceView$MotionRunnable.class
+* out\production\Vino\com\example\vino\VinoSurfaceView$VinoConfigChooser.class
+* out\production\Vino\com\example\vino\VinoSurfaceView$VinoContextFactory.class
+* out\production\Vino\com\example\vino\VinoSurfaceView.class
+* out\production\Vino\com\example\vino\stdCamPos.class
+* out\production\libjpeg\
+* out\production\libjpeg\CMakeLists.txt
+* out\production\libjpeg\MANIFEST.MF
+* out\production\libjpeg\Makefile.am
+* out\production\libjpeg\README
+* out\production\libjpeg\TJExample.class
+* out\production\libjpeg\TJUnitTest.class
+* out\production\libjpeg\doc\
+* out\production\libjpeg\doc\allclasses-frame.html
+* out\production\libjpeg\doc\allclasses-noframe.html
+* out\production\libjpeg\doc\constant-values.html
+* out\production\libjpeg\doc\deprecated-list.html
+* out\production\libjpeg\doc\help-doc.html
+* out\production\libjpeg\doc\index-all.html
+* out\production\libjpeg\doc\index.html
+* out\production\libjpeg\doc\org\
+* out\production\libjpeg\doc\org\libjpegturbo\
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\TJ.html
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\TJCompressor.html
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\TJCustomFilter.html
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\TJDecompressor.html
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\TJScalingFactor.html
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\TJTransform.html
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\TJTransformer.html
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\package-frame.html
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\package-summary.html
+* out\production\libjpeg\doc\org\libjpegturbo\turbojpeg\package-tree.html
+* out\production\libjpeg\doc\overview-tree.html
+* out\production\libjpeg\doc\package-list
+* out\production\libjpeg\doc\resources\
+* out\production\libjpeg\doc\resources\inherit.gif
+* out\production\libjpeg\doc\serialized-form.html
+* out\production\libjpeg\doc\stylesheet.css
+* out\production\libjpeg\org\
+* out\production\libjpeg\org\libjpegturbo\
+* out\production\libjpeg\org\libjpegturbo\turbojpeg\
+* out\production\libjpeg\org\libjpegturbo\turbojpeg\TJ.class
+* out\production\libjpeg\org\libjpegturbo\turbojpeg\TJCompressor.class
+* out\production\libjpeg\org\libjpegturbo\turbojpeg\TJCustomFilter.class
+* out\production\libjpeg\org\libjpegturbo\turbojpeg\TJDecompressor.class
+* out\production\libjpeg\org\libjpegturbo\turbojpeg\TJLoader.class
+* out\production\libjpeg\org\libjpegturbo\turbojpeg\TJLoader.java.in
+* out\production\libjpeg\org\libjpegturbo\turbojpeg\TJScalingFactor.class
+* out\production\libjpeg\org\libjpegturbo\turbojpeg\TJTransform.class
+* out\production\libjpeg\org\libjpegturbo\turbojpeg\TJTransformer.class
+* out\production\libjpeg\org_libjpegturbo_turbojpeg_TJ.h
+* out\production\libjpeg\org_libjpegturbo_turbojpeg_TJCompressor.h
+* out\production\libjpeg\org_libjpegturbo_turbojpeg_TJDecompressor.h
+* out\production\libjpeg\org_libjpegturbo_turbojpeg_TJTransformer.h
+* out\res-cache\
+* out\res-cache\Vino\
+* out\res-cache\Vino\drawable-hdpi\
+* out\res-cache\Vino\drawable-hdpi\ic_launcher.png
+* out\res-cache\Vino\drawable-mdpi\
+* out\res-cache\Vino\drawable-mdpi\ic_launcher.png
+* out\res-cache\Vino\drawable-xhdpi\
+* out\res-cache\Vino\drawable-xhdpi\ic_launcher.png
+* out\res-cache\Vino\drawable-xxhdpi\
+* out\res-cache\Vino\drawable-xxhdpi\ic_launcher.png
+* proguard-project.txt
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:19.1.0
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app\src\main\AndroidManifest.xml
+* assets\ => app\src\main\assets\
+* jni\ => app\src\main\jni\
+* libs\armeabi-v7a\libnativeRender.so => app\src\main\jniLibs\armeabi-v7a\libnativeRender.so
+* libs\armeabi\libnativeRender.so => app\src\main\jniLibs\armeabi\libnativeRender.so
+* res\ => app\src\main\res\
+* src\ => app\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

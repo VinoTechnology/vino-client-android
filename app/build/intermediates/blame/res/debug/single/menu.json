@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "D:\\MyPrograms\\Vino\\vino-client-android\\app\\build\\intermediates\\res\\merged\\debug\\menu\\vino.xml",
+        "source": "D:\\MyPrograms\\Vino\\vino-client-android\\app\\src\\main\\res\\menu\\vino.xml"
+    },
+    {
+        "merged": "D:\\MyPrograms\\Vino\\vino-client-android-new\\app\\build\\intermediates\\res\\merged\\debug\\menu\\vino.xml",
+        "source": "D:\\MyPrograms\\Vino\\vino-client-android-new\\app\\src\\main\\res\\menu\\vino.xml"
+    }
+]
