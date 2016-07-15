@@ -4,7 +4,7 @@ public class Vector3 {
     public float x, y, z;
     public final float ZERO = 1e-10f;
 
-    Vector3() {
+    public Vector3() {
         x = y = z = 0.0f;
     }
 

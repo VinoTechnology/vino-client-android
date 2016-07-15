@@ -23,9 +23,9 @@ public class VinoActivity extends Activity implements OnClickListener {
     public static final String ADDRESS = "219.224.168.69";//2015_4_1
     public static final int PORT = 5588;
 
-    //public static final int _interactionmode=Interaction.USER_DEFINE;
+    //public static final int _interactionmode=InteractionType.USER_DEFINE;
     public static final int _interactionmode = Interaction.TRACKBALLMANIPULATOR;
-    //public static final int _interactionmode=Interaction.FIRSTPERSONMANIPULATOR;
+    //public static final int _interactionmode=InteractionType.FIRSTPERSONMANIPULATOR;
 
     //public static final String _sceneName="armadillo";   //"paris"  "engine"  "cessna" "island"
     public static final String _sceneName = "engine";
