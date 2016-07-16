@@ -1,6 +1,8 @@
 package com.example.vino.transfer;
 
 import com.example.vino.*;
+import com.example.vino.vinoglobal.ViewPerspective;
+import com.example.vino.vinoglobal.ViewResolution;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -69,8 +71,8 @@ public class Transfer {
     }
 
     //2014_8_3
-    public void sendOnePacket(int type, float a, float b, float c) {
-        byte[] mType = toNetworkStream(type);
+    public void sendOnePacket(MessageType type, float a, float b, float c) {
+        byte[] mType = toNetworkStream(type.getValue());
         byte[] mLength = toNetworkStream(29);
         byte[] mId = toNetworkStream(0);
 
@@ -101,11 +103,11 @@ public class Transfer {
     }
 
     //204_7_7
-    public void sendOnePacket(int type, InteractionMode im) {
-        byte[] mType = toNetworkStream(type);
+    public void sendOnePacket(MessageType type, InteractionMode im) {
+        byte[] mType = toNetworkStream(type.getValue());
         byte[] mLength = toNetworkStream(16);
         byte[] mId = toNetworkStream(0);
-        byte[] mData = toNetworkStream(im.getMode());
+        byte[] mData = toNetworkStream(im.getMode().getValue());
 
         try {
             _output.write(mLength);
@@ -120,8 +122,8 @@ public class Transfer {
 
     }
 
-    public void sendOnePacket(int type, ViewResolution r) {
-        byte[] mType = toNetworkStream(type);
+    public void sendOnePacket(MessageType type, ViewResolution r) {
+        byte[] mType = toNetworkStream(type.getValue());
         byte[] mLength = toNetworkStream(20);
         byte[] mId = toNetworkStream(0);
 
@@ -141,11 +143,11 @@ public class Transfer {
 
     }
 
-    public void sendOnePacket(int type, int size, int apptype) {
-        byte[] mType = toNetworkStream(type);
+    public void sendOnePacket(MessageType type, int size, ApplicationType apptype) {
+        byte[] mType = toNetworkStream(type.getValue());
         // mType[0] = type;
         byte[] mLength = toNetworkStream(size);
-        byte[] mApptype = toNetworkStream(apptype);
+        byte[] mApptype = toNetworkStream(apptype.getValue());
         try {
             //  Log.i("VIVO","!!!!!sendonePacket!!!!");
             _output.write(mLength);
@@ -158,8 +160,8 @@ public class Transfer {
     }
 
     //2014_7_31
-    public void sendOnePacket(int type, int size, int partid, int op) {
-        byte[] mType = toNetworkStream(type);
+    public void sendOnePacket(MessageType type, int size, int partid, int op) {
+        byte[] mType = toNetworkStream(type.getValue());
         byte[] mLength = toNetworkStream(size);
         byte[] mId = toNetworkStream(0);
         byte[] mPartid = toNetworkStream(partid);
@@ -183,8 +185,8 @@ public class Transfer {
 
     }
 
-    public void sendOnePacket(int type, int size) {
-        byte[] mType = toNetworkStream(type);
+    public void sendOnePacket(MessageType type, int size) {
+        byte[] mType = toNetworkStream(type.getValue());
         // mType[0] = type;
         byte[] mLength = toNetworkStream(size);
         //byte[] mApptype=toNetworkStream(VinoActivity.ApplicationID);
@@ -212,7 +214,7 @@ public class Transfer {
         return toNetworkStream(Float.floatToIntBits(t));
     }
 
-    protected byte[] toNetworkStream(Camera pos) {
+    protected byte[] toNetworkStream(CameraModel pos) {
         byte[] a = toNetworkStream(pos._eyex);
 
         byte[] b = toNetworkStream(pos._eyey);
@@ -239,9 +241,9 @@ public class Transfer {
     }
 
     //2014_7_7
-    public void sendOnePacket(int type, Camera pos) {
+    public void sendOnePacket(MessageType type, CameraModel pos) {
         byte[] mLength = toNetworkStream(48);
-        byte[] mType = toNetworkStream(type);
+        byte[] mType = toNetworkStream(type.getValue());
         byte[] mId = toNetworkStream(0);
         byte[] mData = toNetworkStream(pos);
         try {
@@ -272,7 +274,7 @@ public class Transfer {
         }
     }*/
 
-    protected byte[] toNetworkStream(Perspective vp) {
+    protected byte[] toNetworkStream(PerspectiveModel vp) {
         byte[][] a = new byte[4][0];
         a[0] = toNetworkStream(vp._fov);
         a[1] = toNetworkStream(vp._aspect);
@@ -285,9 +287,9 @@ public class Transfer {
         return d;
     }
 
-    public void sendOnePacket(int type, Perspective vp) {
+    public void sendOnePacket(MessageType type, PerspectiveModel vp) {
         byte[] mLength = toNetworkStream(28);
-        byte[] mType = toNetworkStream(type);
+        byte[] mType = toNetworkStream(type.getValue());
         byte[] mId = toNetworkStream(0);
         byte[] mData = toNetworkStream(vp);
         try {
@@ -335,7 +337,7 @@ public class Transfer {
             e.printStackTrace();
         }
     }*/
-    protected byte[] toNetworkStream(Motion m) {
+    protected byte[] toNetworkStream(MotionModel m) {
         byte[] a1 = toNetworkStream(m._x1);
         byte[] b1 = toNetworkStream(m._y1);
         byte[] a2 = toNetworkStream(m._x2);
@@ -349,9 +351,9 @@ public class Transfer {
         return c;
     }
 
-    public void sendOnePacket(int type, Motion md) {
+    public void sendOnePacket(MessageType type, MotionModel md) {
         byte[] mLength = toNetworkStream(29);
-        byte[] mType = toNetworkStream(type);
+        byte[] mType = toNetworkStream(type.getValue());
         byte[] mId = toNetworkStream(0);
         byte[] mData = toNetworkStream(md);
         try {
@@ -365,10 +367,10 @@ public class Transfer {
         }
     }
 
-    public void sendOnePacket(int initialSceneMsg, String scenename) {
+    public void sendOnePacket(MessageType initialSceneMsg, String scenename) {
         int _fillLen = 29 - (scenename.length() + 12);
         byte[] mLength = toNetworkStream(29);
-        byte[] mType = toNetworkStream(initialSceneMsg);
+        byte[] mType = toNetworkStream(initialSceneMsg.getValue());
         byte[] mId = toNetworkStream(0);
         byte[] mData = toNetworkStream(scenename);
         byte[] mFill = new byte[1];

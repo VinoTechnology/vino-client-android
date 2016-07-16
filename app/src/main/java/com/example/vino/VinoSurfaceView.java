@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
+import com.example.vino.transferadapter.TransferAdapter;
+import com.example.vino.vinoglobal.MotionData;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

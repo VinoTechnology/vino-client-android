@@ -2,6 +2,11 @@ package com.example.vino;
 
 import android.util.Log;
 
+import com.example.vino.vinoglobal.StandardCameraPosition;
+import com.example.vino.vinoglobal.UpsampleFactor;
+import com.example.vino.vinoglobal.ViewPerspective;
+import com.example.vino.vinoglobal.ViewResolution;
+
 public class LocalInfoCapturer {
 
 
@@ -84,8 +89,8 @@ public class LocalInfoCapturer {
         Log.i("VINO_LOCAL_INFO_CAPTURER", "predicted Res: " + String.valueOf(_recDRes._width) + ":" + String.valueOf(_recDRes._height));
     }
 
-    public stdCamPos getCameraPos() {
-        stdCamPos pos = new stdCamPos();
+    public StandardCameraPosition getCameraPos() {
+        StandardCameraPosition pos = new StandardCameraPosition();
 
         // 宸撮粠鍩庡競
 //		pos._eye = new VectorCubical(-223.832f,-814.06f,11.2053f);

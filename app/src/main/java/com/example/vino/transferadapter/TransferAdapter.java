@@ -1,65 +1,40 @@
-package com.example.vino;
+package com.example.vino.transferadapter;
 
 import android.util.Log;
+
+import com.example.vino.Vector3;
+import com.example.vino.transfer.MessageType;
+import com.example.vino.vinoglobal.MotionData;
+import com.example.vino.vinoglobal.StandardCameraPosition;
+import com.example.vino.vinoglobal.UpsampleFactor;
+import com.example.vino.vinoglobal.ViewFrustum;
+import com.example.vino.vinoglobal.ViewPerspective;
+import com.example.vino.vinoglobal.ViewResolution;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 
-//import android.util.Log;
-
-
-class DataType {
-    public static final byte VINO_CONFIG_SYN = 0;
-    public static final byte VINO_CONFIG_VIEW_FRUSTUM = 0x08;
-    public static final byte VINO_CONFIG_VIEW_PERSPECTIVE = 0x09;
-    public static final byte VINO_CONFIG_VIEW_RESOLUTION = 0x0A;
-    public static final byte VINO_CONFIG_CAMERA_STANDARD = 0x10;
-    public static final byte VINO_CONFIG_QUALITY_UPSAMPLE = 0x18;
-    public static final byte VINO_MODEL_3DIMAGE = 0x40;
-    public static final byte VINO_MOTION_TOUCH_STANDARD = (byte) 0x80;
-}
-
-
-class DataPacket {
-    public int _cLen;
-    public int _dSrcLen;
-    public int _dDstLen;
-    public float[] _mat;
-    public byte[] _cData;
-    public byte[] _dData;
-
-    DataPacket(int len1, int len2, int len3) {
-        _cLen = len1;
-        _dSrcLen = len2;
-        _dDstLen = len3;
-        _mat = new float[16];
-        _cData = new byte[len1];
-        _dData = new byte[len3];
-    }
-}
-
-
 public class TransferAdapter {
     private Socket _socket;
     private BufferedInputStream _input;
     private BufferedOutputStream _output;
-    boolean _isConnected;
+    public boolean _isConnected;
 
-    Socket getSocket() {
+    public Socket getSocket() {
         return _socket;
     }
 
-    BufferedInputStream getInputstream() {
+    public BufferedInputStream getInputstream() {
         return _input;
     }
 
-    BufferedOutputStream getOutputStrem() {
+    public BufferedOutputStream getOutputStrem() {
         return _output;
     }
 
-    TransferAdapter() {
+    public TransferAdapter() {
         _socket = null;
         _input = null;
         _output = null;
@@ -85,14 +60,14 @@ public class TransferAdapter {
     }
 
 
-    public DataPacket receiveOnePacket() {
+    public DataPacketModel receiveOnePacket() {
         byte[] mType = new byte[1];
         byte[] mHead = new byte[76];
-        DataPacket dp = null;
+        DataPacketModel dp = null;
         int readSize;
         readSize = fullRead(mType, 0, mType.length);
         if (readSize != 1) return dp;
-        if (mType[0] == DataType.VINO_MODEL_3DIMAGE) {
+        if (mType[0] == DataType.VINO_MODEL_3DIMAGE.getValue()) {
 
             readSize = fullRead(mHead, 0, mHead.length);
             //Log.i( "VINO", "head:" + String.valueOf(readSize));
@@ -124,21 +99,21 @@ public class TransferAdapter {
         return len;
     }
 
-    protected DataPacket parse3DImageHead(byte[] head) {
+    protected DataPacketModel parse3DImageHead(byte[] head) {
         int len1 = toLocalInt(head, 0);
         int len2 = toLocalInt(head, 4);
         int len3 = toLocalInt(head, 8);
 
         //Log.i( "VINO", "Len:" + String.valueOf(len1) + "," + String.valueOf(len2) + "," +String.valueOf(len3));
-        DataPacket dp = new DataPacket(len1, len2, len3);
+        DataPacketModel dp = new DataPacketModel(len1, len2, len3);
         int i;
         for (i = 0; i < 16; ++i)
             dp._mat[i] = Float.intBitsToFloat(toLocalInt(head, 12 + i * 4));
         return dp;
     }
 
-    public void sendOnePacket(int type, int size) {
-        byte[] mType = toNetworkStream(type);
+    public void sendOnePacket(MessageType type, int size) {
+        byte[] mType = toNetworkStream(type.getValue());
         // mType[0] = type;
         byte[] mLength = toNetworkStream(size);
         try {
@@ -151,9 +126,9 @@ public class TransferAdapter {
         }
     }
 
-    public void sendOnePacket(byte type) {
+    public void sendOnePacket(MessageType type) {
         byte[] mType = new byte[1];
-        mType[0] = type;
+        mType[0] = (byte) type.getValue();
         try {
             _output.write(mType);
             _output.flush();
@@ -162,9 +137,9 @@ public class TransferAdapter {
         }
     }
 
-    public void sendOnePacket(byte type, stdCamPos pos) {
+    public void sendOnePacket(MessageType type, StandardCameraPosition pos) {
         byte[] mType = new byte[1];
-        mType[0] = type;
+        mType[0] = (byte) type.getValue();
         byte[] mData = toNetworkStream(pos);
         try {
             _output.write(mType);
@@ -175,9 +150,9 @@ public class TransferAdapter {
         }
     }
 
-    public void sendOnePacket(byte type, ViewFrustum vf) {
+    public void sendOnePacket(MessageType type, ViewFrustum vf) {
         byte[] mType = new byte[1];
-        mType[0] = type;
+        mType[0] = (byte) type.getValue();
         byte[] mData = toNetworkStream(vf);
         try {
             _output.write(mType);
@@ -188,9 +163,9 @@ public class TransferAdapter {
         }
     }
 
-    public void sendOnePacket(byte type, ViewPerspective vp) {
+    public void sendOnePacket(MessageType type, ViewPerspective vp) {
         byte[] mType = new byte[1];
-        mType[0] = type;
+        mType[0] = (byte) type.getValue();
         byte[] mData = toNetworkStream(vp);
         try {
             _output.write(mType);
@@ -201,9 +176,9 @@ public class TransferAdapter {
         }
     }
 
-    public void sendOnePacket(byte type, ViewResolution vr) {
+    public void sendOnePacket(MessageType type, ViewResolution vr) {
         byte[] mType = new byte[1];
-        mType[0] = type;
+        mType[0] = (byte) type.getValue();
         byte[] mData = toNetworkStream(vr);
         try {
             _output.write(mType);
@@ -214,9 +189,9 @@ public class TransferAdapter {
         }
     }
 
-    public void sendOnePacket(byte type, UpsampleFactor uf) {
+    public void sendOnePacket(MessageType type, UpsampleFactor uf) {
         byte[] mType = new byte[1];
-        mType[0] = type;
+        mType[0] = (byte) type.getValue();
         byte[] mData = toNetworkStream(uf);
         try {
             _output.write(mType);
@@ -227,9 +202,9 @@ public class TransferAdapter {
         }
     }
 
-    public void sendOnePacket(byte type, MotionData md) {
+    public void sendOnePacket(MessageType type, MotionData md) {
         byte[] mType = new byte[1];
-        mType[0] = type;
+        mType[0] = (byte) type.getValue();
         byte[] mData = toNetworkStream(md);
         try {
             _output.write(mType);
@@ -287,11 +262,11 @@ public class TransferAdapter {
         return c;
     }
 
-    protected byte[] toNetworkStream(stdCamPos pos) {
+    protected byte[] toNetworkStream(StandardCameraPosition pos) {
         byte[] a = toNetworkStream(pos._eye);
         byte[] b = toNetworkStream(pos._center);
         byte[] c = toNetworkStream(pos._up);
-        byte[] d = new byte[stdCamPos.SIZE];
+        byte[] d = new byte[StandardCameraPosition.SIZE];
         System.arraycopy(a, 0, d, 0, a.length);
         System.arraycopy(b, 0, d, 12, b.length);
         System.arraycopy(c, 0, d, 24, c.length);

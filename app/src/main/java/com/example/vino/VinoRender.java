@@ -3,6 +3,8 @@ package com.example.vino;
 import android.opengl.GLSurfaceView.Renderer;
 import android.util.Log;
 
+import com.example.vino.vinoglobal.MotionData;
+
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 

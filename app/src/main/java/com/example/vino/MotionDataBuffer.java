@@ -1,5 +1,7 @@
 package com.example.vino;
 
+import com.example.vino.vinoglobal.MotionData;
+
 import java.util.concurrent.Semaphore;
 
 public class MotionDataBuffer {

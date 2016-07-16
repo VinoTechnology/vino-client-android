@@ -12,6 +12,14 @@ import android.view.WindowManager.LayoutParams;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.example.vino.nodeobject.ObjectGroup;
+import com.example.vino.transfer.ApplicationType;
+import com.example.vino.transfer.InteractionType;
+import com.example.vino.transfer.MessageType;
+import com.example.vino.transferadapter.TransferAdapter;
+import com.example.vino.vinoglobal.StandardCameraPosition;
+import com.example.vino.vinoglobal.ViewPerspective;
+import com.example.vino.vinoglobal.ViewResolution;
 import com.example.vinok.R;
 
 import java.io.IOException;
@@ -24,7 +32,7 @@ public class VinoActivity extends Activity implements OnClickListener {
     public static final int PORT = 5588;
 
     //public static final int _interactionmode=InteractionType.USER_DEFINE;
-    public static final int _interactionmode = Interaction.TRACKBALLMANIPULATOR;
+    public static final InteractionType _interactionmode = InteractionType.TRACK_BALL_MANIPULATOR;
     //public static final int _interactionmode=InteractionType.FIRSTPERSONMANIPULATOR;
 
     //public static final String _sceneName="armadillo";   //"paris"  "engine"  "cessna" "island"
@@ -35,7 +43,7 @@ public class VinoActivity extends Activity implements OnClickListener {
 
     //2014_7_28
     //public static final int ApplicationID=ApplicationType.DEFAULTVALUE;//Ĭ��ֵ
-    public static final int ApplicationID = ApplicationType.ENGINESHOW;//��������ά�ṹչʾӦ��
+    public static final ApplicationType ApplicationID = ApplicationType.ENGINE_SHOW;//��������ά�ṹչʾӦ��
     public static final boolean isAppmode = false;//�Ƿ�ᷢ��APPLICATIONMS���͵���Ϣ��
 
     private TransferAdapter _adapter = null;
@@ -115,7 +123,7 @@ public class VinoActivity extends Activity implements OnClickListener {
         ress[2] = _capturer.getRecvDepthRes();
         ress[3] = _capturer.getScreenRes();
         ViewPerspective psp = _capturer.getPerpective();
-        stdCamPos pos = _capturer.getCameraPos();
+        StandardCameraPosition pos = _capturer.getCameraPos();
 
         VinoNativeRender.setGlobe(ress, psp, pos, _interactionmode);
         //
@@ -162,7 +170,7 @@ public class VinoActivity extends Activity implements OnClickListener {
         _glView = new VinoSurfaceView(this, _adapter);
         _glView.getRender().setNewData();
 
-        if (this.ApplicationID == ApplicationType.ENGINESHOW) {
+        if (this.ApplicationID == ApplicationType.ENGINE_SHOW) {
             UiButton(_glView);
         } else {
             setContentView(_glView);

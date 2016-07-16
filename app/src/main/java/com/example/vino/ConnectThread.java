@@ -2,6 +2,15 @@ package com.example.vino;
 
 import android.util.Log;
 
+import com.example.vino.transfer.CameraModel;
+import com.example.vino.transfer.InteractionMode;
+import com.example.vino.transfer.MessageType;
+import com.example.vino.transfer.MotionModel;
+import com.example.vino.transfer.PerspectiveModel;
+import com.example.vino.transfer.Transfer;
+import com.example.vino.transferadapter.DataPacketModel;
+import com.example.vino.transferadapter.TransferAdapter;
+
 
 public class ConnectThread implements Runnable {
 
@@ -12,9 +21,9 @@ public class ConnectThread implements Runnable {
     private LocalInfoCapturer _capturer;
     private Transfer _transfer;
 
-    private Camera _cam;//鎽勫儚澶�
-    private Perspective _per;//閫忚鍙傛暟
-    private Motion _motion;//鐢ㄦ埛瑙﹀睆鏁版嵁
+    private CameraModel _cam;//鎽勫儚澶�
+    private PerspectiveModel _per;//閫忚鍙傛暟
+    private MotionModel _motion;//鐢ㄦ埛瑙﹀睆鏁版嵁
 
 
     //2014_7_7
@@ -28,9 +37,9 @@ public class ConnectThread implements Runnable {
         _capturer = activ.getCapturer();
         _transfer = Transfer.getInstance();
 
-        _cam = new Camera();
-        _per = new Perspective();
-        _motion = new Motion();
+        _cam = new CameraModel();
+        _per = new PerspectiveModel();
+        _motion = new MotionModel();
 
         //2014_7_7
         _im = new InteractionMode();
@@ -102,7 +111,7 @@ public class ConnectThread implements Runnable {
             //_transfer.sendOnePacket(MessageType.NODE_ROTATION_DIRECTION, 1f,0f,0f);
         }
 
-        DataPacket rcData = _adapter.receiveOnePacket();
+        DataPacketModel rcData = _adapter.receiveOnePacket();
 
         Log.i("VINO", "receive first data```````````````````````````````````````````````````````````````````````````");
 

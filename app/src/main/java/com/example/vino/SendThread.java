@@ -1,17 +1,23 @@
 package com.example.vino;
 
 
+import com.example.vino.transfer.MessageType;
+import com.example.vino.transfer.MotionModel;
+import com.example.vino.transfer.Transfer;
+import com.example.vino.transferadapter.TransferAdapter;
+import com.example.vino.vinoglobal.MotionData;
+
 public class SendThread implements Runnable {
 
     private TransferAdapter _adapter;
     private MotionDataBuffer _mdBuffer;
     private Transfer _transfer;
-    private Motion _motion;
+    private MotionModel _motion;
 
     SendThread(TransferAdapter adapter, MotionDataBuffer buffer) {
         _adapter = adapter;
         _mdBuffer = buffer;
-        _motion = new Motion();
+        _motion = new MotionModel();
         _transfer = Transfer.getInstance();
         //
         _transfer.set_isConnected(_adapter.isConnected());
@@ -27,7 +33,7 @@ public class SendThread implements Runnable {
         // TODO Auto-generated method stub
         MotionData tmp = null;
         if (_motion == null) {
-            _motion = new Motion();
+            _motion = new MotionModel();
         }
         while (true) {
             tmp = _mdBuffer.getMotion();

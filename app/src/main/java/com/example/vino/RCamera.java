@@ -2,6 +2,10 @@ package com.example.vino;
 
 import android.util.Log;
 
+import com.example.vino.transfer.MessageType;
+import com.example.vino.transfer.Transfer;
+import com.example.vino.vinoglobal.StandardCameraPosition;
+
 //2014_8_3  writen by Gmj
 //User: Rmm 
 
@@ -32,7 +36,7 @@ public class RCamera {
         this.up_z = 1;
     }
 
-    public void setCamera(stdCamPos c) {
+    public void setCamera(StandardCameraPosition c) {
         position_x = c._eye.x;
         position_y = c._eye.y;
         position_z = c._eye.z;
@@ -89,7 +93,7 @@ public class RCamera {
 
     public void deliverToNDK() {
         Log.i("1SetCamera", "setcamera");
-        stdCamPos ca = new stdCamPos();
+        StandardCameraPosition ca = new StandardCameraPosition();
         ca._eye = new Vector3();
         ca._center = new Vector3();
         ca._up = new Vector3();
@@ -117,8 +121,8 @@ public class RCamera {
         }
     }
 
-    public stdCamPos getCameraFromNdk() {
-        stdCamPos cam = new stdCamPos();
+    public StandardCameraPosition getCameraFromNdk() {
+        StandardCameraPosition cam = new StandardCameraPosition();
         cam._eye = new Vector3();
         cam._center = new Vector3();
         cam._up = new Vector3();
@@ -127,8 +131,8 @@ public class RCamera {
         return cam;
     }
 
-    public stdCamPos getCamera() {
-        stdCamPos ca = new stdCamPos();
+    public StandardCameraPosition getCamera() {
+        StandardCameraPosition ca = new StandardCameraPosition();
         ca._eye = new Vector3();
         ca._center = new Vector3();
         ca._up = new Vector3();

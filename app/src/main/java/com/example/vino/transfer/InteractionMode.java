@@ -8,24 +8,9 @@ public class InteractionMode {
 
     public static final int SIZE = 4;
 
-    private int mode;
+    public InteractionType mode;
 
-    public InteractionMode() {
-    }
-
-    public InteractionMode(int mode) {
-        this.mode = mode;
-    }
-
-    public static int getSIZE() {
-        return SIZE;
-    }
-
-    public int getMode() {
+    public InteractionType getMode() {
         return mode;
-    }
-
-    public void setMode(int mode) {
-        this.mode = mode;
     }
 }

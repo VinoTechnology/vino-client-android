@@ -2,6 +2,9 @@ package com.example.vino;
 
 import android.util.Log;
 
+import com.example.vino.transferadapter.DataPacketModel;
+import com.example.vino.transferadapter.TransferAdapter;
+
 public class ReceiveThread implements Runnable {
 
     private TransferAdapter _adapter;
@@ -22,7 +25,7 @@ public class ReceiveThread implements Runnable {
     public void run() {
         // TODO Auto-generated method stub
         while (true) {
-            DataPacket rcData = _adapter.receiveOnePacket();
+            DataPacketModel rcData = _adapter.receiveOnePacket();
 
             long time1 = System.currentTimeMillis();
 
